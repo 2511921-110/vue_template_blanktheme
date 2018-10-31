@@ -1,0 +1,327 @@
+@charset "UTF-8";
+
+/*color*/
+$color-theme: #ce0613;
+$color-sub: #160804;
+$color-base: white;
+$color-text: #000;
+$color-accent: #ce0613;
+$danger-color: darken(#9e7bb3, .1);
+$color-link: #1a305a;
+$line: white;
+
+/*font*/
+//$theme_fonts: 'Noto Serif', 游明朝,"Yu Mincho",YuMincho,"Hiragino Mincho ProN",HGS明朝E,メイリオ,Meiryo,serif;
+$theme_fonts: 'NotoSans-R',YuGothic,"ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+$headline_fonts: 'NotoSans-M' ,YuGothic,"ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+//$headline_fonts: 游明朝,"Yu Mincho",YuMincho,"Hiragino Mincho ProN",HGS明朝E,メイリオ,Meiryo,serif;
+
+@font-face {
+   font-family: 'NotoSans-L';
+   font-style: normal;
+   font-weight: 500;
+   src: url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Light.woff2) format('woff2'),
+        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Light.woff) format('woff'),
+        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Light.otf) format('opentype');
+}
+
+@font-face {
+   font-family: 'NotoSans-DL';
+   font-style: normal;
+   font-weight: 500;
+   src: url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-DemiLight.woff2) format('woff2'),
+        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-DemiLight.woff) format('woff'),
+        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-DemiLight.otf) format('opentype');
+}
+
+@font-face {
+   font-family: 'NotoSans-R';
+   font-style: normal;
+   font-weight: 500;
+   src: url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.woff2) format('woff2'),
+        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.woff) format('woff'),
+        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.otf) format('opentype');
+}
+
+@font-face {
+   font-family: 'NotoSans-M';
+   font-style: normal;
+   font-weight: 500;
+   src: url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Medium.woff2) format('woff2'),
+        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Medium.woff) format('woff'),
+        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Medium.otf) format('opentype');
+}
+
+@font-face {
+   font-family: 'NotoSans-B';
+   font-style: normal;
+   font-weight: 500;
+   src: url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Bold.woff2) format('woff2'),
+        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Bold.woff) format('woff'),
+        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Bold.otf) format('opentype');
+}
+
+
+// 横幅
+$content_width:1200px;
+
+
+@mixin cf{
+  &:after{
+    content:" ";
+    display:block;
+    clear:both;
+  }
+}
+
+/*font size*/
+@mixin font-size($size, $base: 16) {
+    font-size: $size + px;
+    font-size: ($size / $base) * 1rem;
+}
+
+/*font関連*/
+@mixin title_f{
+  font-family: $headline_fonts;
+}
+@mixin txt_f{
+  font-family: $theme_fonts;
+}
+
+@mixin flex(){
+  display:-webkit-box;
+  display:-moz-box;
+  display:-ms-box;
+  display:-webkit-flexbox;
+  display:-moz-flexbox;
+  display:-ms-flexbox;
+  display:-webkit-flex;
+  display:-moz-flex;
+  display:-ms-flex;
+  display:flex;
+  -webkit-box-lines:multiple;
+  -moz-box-lines:multiple;
+  -webkit-flex-wrap:wrap;
+  -moz-flex-wrap:wrap;
+  -ms-flex-wrap:wrap;
+  flex-wrap:wrap;
+}
+
+img{
+  max-width: 100%;
+}
+
+
+html{
+  font-size:16px;
+  @media screen and (max-width: 768px){
+    font-size:12px;
+  }
+}
+
+body{
+  @include font-size(16);
+  font-family: $theme_fonts;
+  line-height: 1.7;
+  color: $color-theme;
+  margin: 0;
+}
+
+p{
+  margin: 0;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+  list-style:none;
+}
+
+h1,h2,h3,h4,h5,h6{
+  margin: 0;
+}
+
+address{
+  font-style: normal;
+}
+
+
+figure{
+  line-height: 0;
+}
+
+/*汎用型*/
+table{
+  width: 100%;
+  font-size:100%;
+  box-sizing: border-box;
+  tbody{
+    tr{
+      th,td{
+        padding: 5px 3px;
+        border-bottom: solid 1px #ddd;
+      }
+      th{
+        width: 25%;
+      }
+    }
+  }
+}
+
+figcaption{
+  line-height: 1.7;
+}
+
+.cf{
+  @include cf;
+}
+
+@media screen and (max-width: 768px){
+}
+
+
+/*******************************
+  content size
+*******************************/
+
+.wrap{
+  max-width: $content_width;
+  margin-left: auto;
+  margin-right: auto;
+  &__min{
+    max-width: $content_width * 0.7;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &__large{
+    max-width: $content_width * 1.05;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+/*******************************
+  title
+*******************************/
+.title{
+}
+
+
+/*******************************
+  text
+*******************************/
+
+
+/*******************************
+  col padding
+*******************************/
+
+
+/*******************************
+  table
+*******************************/
+
+
+/*******************************
+  background
+*******************************/
+
+
+/*******************************
+  header & nav
+*******************************/
+
+
+/*******************************
+  footer
+*******************************/
+.footer{
+}
+
+
+/*******************************
+  slider
+*******************************/
+
+
+/*******************************
+  map
+*******************************/
+
+
+/*******************************
+  instagram
+*******************************/
+
+
+/*******************************
+  twitter
+*******************************/
+
+
+/*******************************
+  single
+*******************************/
+
+
+/*******************************
+  aside
+*******************************/
+
+
+/*******************************
+  lightbox
+*******************************/
+
+
+/*******************************
+  content layoput
+*******************************/
+
+
+/*******************************
+  vue-infinite-loader
+*******************************/
+.infinite-loading-container{
+  display: block;
+  width: 100%;
+  margin-top: 100px;
+}
+
+
+/*******************************
+  ready-loading
+*******************************/
+.preloader{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color-theme, .95);
+  z-index: 30000;
+  transition: all 0.5s ease-out;
+  opacity: 1;
+  &__icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  &__remove{
+    left: -100%;
+    opacity: 0;
+  }
+}
+
+/*******************************
+  border
+*******************************/
+
+
+
+/*******************************
+  サイト固有
+*******************************/
+

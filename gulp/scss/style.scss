@@ -16,51 +16,6 @@ $theme_fonts: 'NotoSans-R',YuGothic,"ヒラギノ角ゴ ProN W3", Hiragino Kaku 
 $headline_fonts: 'NotoSans-M' ,YuGothic,"ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
 //$headline_fonts: 游明朝,"Yu Mincho",YuMincho,"Hiragino Mincho ProN",HGS明朝E,メイリオ,Meiryo,serif;
 
-@font-face {
-   font-family: 'NotoSans-L';
-   font-style: normal;
-   font-weight: 500;
-   src: url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Light.woff2) format('woff2'),
-        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Light.woff) format('woff'),
-        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Light.otf) format('opentype');
-}
-
-@font-face {
-   font-family: 'NotoSans-DL';
-   font-style: normal;
-   font-weight: 500;
-   src: url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-DemiLight.woff2) format('woff2'),
-        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-DemiLight.woff) format('woff'),
-        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-DemiLight.otf) format('opentype');
-}
-
-@font-face {
-   font-family: 'NotoSans-R';
-   font-style: normal;
-   font-weight: 500;
-   src: url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.woff2) format('woff2'),
-        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.woff) format('woff'),
-        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.otf) format('opentype');
-}
-
-@font-face {
-   font-family: 'NotoSans-M';
-   font-style: normal;
-   font-weight: 500;
-   src: url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Medium.woff2) format('woff2'),
-        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Medium.woff) format('woff'),
-        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Medium.otf) format('opentype');
-}
-
-@font-face {
-   font-family: 'NotoSans-B';
-   font-style: normal;
-   font-weight: 500;
-   src: url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Bold.woff2) format('woff2'),
-        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Bold.woff) format('woff'),
-        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Bold.otf) format('opentype');
-}
-
 
 // 横幅
 $content_width:1200px;

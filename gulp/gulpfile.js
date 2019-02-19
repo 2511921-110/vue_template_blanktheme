@@ -52,7 +52,7 @@ gulp.task("default", function() {
     .pipe(gulp.dest( dstGlob ));
     });
     browserSync({
-      proxy: "http://ito.blog/",
+      proxy: "http://flower.ito/",
       files: [
         "../**/*.css",
         "../**/*.js",
@@ -71,7 +71,7 @@ gulp.task("default", function() {
       .pipe(sourcemaps.init())
       .pipe(sass({
         includePaths: require('node-reset-scss').includePath,
-        outputStyle: 'expanded'
+        outputStyle: 'compressed' // outputStyle: 'expanded'
       }).on('error', sass.logError)) //プラグインの実行
       .pipe(sourcemaps.write({includeContent: false}))
       .pipe(sourcemaps.init({loadMaps: true}))

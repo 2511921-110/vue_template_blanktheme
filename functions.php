@@ -6,19 +6,36 @@
 
 //headerで読み込むCSS
 if ( !is_admin() ) {
-	function add_cssfiles() {
-   	// サイト共通のCSSの読み込み
-    wp_enqueue_style( 'cssflame', get_stylesheet_directory_uri() . '/css/bootstrap-grid.css', '20180830', true );
-    wp_enqueue_style( 'allstyle', get_stylesheet_directory_uri() . '/css/style.css' , '20180830', true);
-    wp_enqueue_style( 'addstyle', get_stylesheet_directory_uri() . '/style.css' , '20180830', true);
-  	//wp_enqueue_style( 'motostyle', get_stylesheet_directory_uri() . '/style.css', array('moto_style') );
-	}
-	function add_jsfiles() {
-	  // サイト共通のJSの読み込み
-	  //wp_enqueue_script( 'jquery.japan-map', get_stylesheet_directory_uri() . '/js/jquery.japan-map.min.js', array(), '1.0.0', true );
-	}
-	add_action( 'wp_enqueue_scripts', 'add_cssfiles' );
-	add_action( 'wp_enqueue_scripts', 'add_jsfiles' );
+  function add(){
+    define("TEMPLATE_DIRE", get_template_directory_uri());
+    define("TEMPLATE_PATH", get_template_directory());
+    function wp_css($css_name, $file_path){
+        wp_enqueue_style($css_name,TEMPLATE_DIRE.$file_path, array(), date('YmdGis', filemtime(TEMPLATE_PATH.$file_path)));
+    }
+    function wp_script($script_name, $file_path, $bool = true){
+        wp_enqueue_script($script_name,TEMPLATE_DIRE.$file_path, array(), date('YmdGis', filemtime(TEMPLATE_PATH.$file_path)), $bool);
+    }
+    //以下のように使う
+    wp_script('wemo_script','/js/bundle.js');
+    wp_css('common_style','/style.css');
+    wp_css('bootstrap-grid','/css/bootstrap-grid.css');
+    if(!wp_is_mobile()){
+      wp_css('fonts','/css/fonts.css');
+    }
+    wp_css('css_style','/css/style.css');
+  }
+  add_action('wp_enqueue_scripts', 'add',1);
+}
+
+//scriptにasyncを追加
+if ( !(is_admin() ) ) {
+  function replace_scripttag ( $tag ) {
+    if ( !preg_match( '/\b(defer|async)\b/', $tag ) ) {
+      return str_replace( "type='text/javascript'", 'async', $tag );
+    }
+    return $tag;
+  }
+  add_filter( 'script_loader_tag', 'replace_scripttag' );
 }
 
 //コンテンツのimgパスを置き換える
